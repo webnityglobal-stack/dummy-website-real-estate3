@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | PropVanta</title>
+  <meta name="description" content="Discover PropVanta, your trusted property partner for residential plots, flats, commercial properties and land investments.">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #292929;
+      background: #fff;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    :root {
+      --pv-orange: #f58220;
+      --pv-dark: #202124;
+      --pv-text: #666;
+      --pv-light: #fff7ef;
+    }
+
+    .about-hero {
+      position: relative;
+      min-height: 490px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(20,22,25,.94), rgba(20,22,25,.65)),
+        url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85') center/cover no-repeat;
+    }
+
+    .about-hero-inner {
+      width: min(1180px, 90%);
+      margin: auto;
+      padding: 85px 0;
+    }
+
+    .about-eyebrow {
+      display: inline-block;
+      color: var(--pv-orange);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .about-hero h1 {
+      max-width: 760px;
+      margin: 0 0 22px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .about-hero h1 span {
+      color: var(--pv-orange);
+    }
+
+    .about-hero p {
+      max-width: 650px;
+      color: #e4e4e4;
+      font-size: 16px;
+      line-height: 1.9;
+      margin: 0 0 30px;
+    }
+
+    .about-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      background: var(--pv-orange);
+      color: #fff;
+      padding: 14px 25px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .25s;
+    }
+
+    .about-btn:hover {
+      background: #db6d12;
+      transform: translateY(-2px);
+    }
+
+    .about-section {
+      padding: 85px 0;
+    }
+
+    .about-container {
+      width: min(1180px, 90%);
+      margin: auto;
+    }
+
+    .about-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .about-heading .eyebrow {
+      color: var(--pv-orange);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .about-heading h2 {
+      margin: 12px 0;
+      color: var(--pv-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(27px, 3vw, 39px);
+      line-height: 1.3;
+    }
+
+    .about-heading p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--pv-text);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .about-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-story-image {
+      position: relative;
+    }
+
+    .about-story-image img {
+      display: block;
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .about-image-badge {
+      position: absolute;
+      right: -18px;
+      bottom: 25px;
+      background: var(--pv-orange);
+      color: white;
+      border-radius: 8px;
+      padding: 20px 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    }
+
+    .about-image-badge strong {
+      display: block;
+      font-size: 29px;
+      line-height: 1.2;
+    }
+
+    .about-image-badge span {
+      font-size: 12px;
+    }
+
+    .about-story-content .eyebrow {
+      color: var(--pv-orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .about-story-content h2 {
+      color: var(--pv-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(26px, 3vw, 37px);
+      line-height: 1.35;
+      margin: 15px 0;
+    }
+
+    .about-story-content p {
+      color: var(--pv-text);
+      font-size: 14px;
+      line-height: 1.95;
+      margin-bottom: 16px;
+    }
+
+    .about-check-list {
+      display: grid;
+      gap: 13px;
+      margin: 25px 0 30px;
+    }
+
+    .about-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: #3d3d3d;
+      font-size: 14px;
+    }
+
+    .about-check-icon {
+      flex: 0 0 23px;
+      width: 23px;
+      height: 23px;
+      display: grid;
+      place-items: center;
+      background: #fff0e2;
+      color: var(--pv-orange);
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .about-stats {
+      background: var(--pv-dark);
+      padding: 48px 0;
+    }
+
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      text-align: center;
+    }
+
+    .about-stat {
+      padding: 10px;
+    }
+
+    .about-stat strong {
+      display: block;
+      color: var(--pv-orange);
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(30px, 3.5vw, 42px);
+      font-weight: 800;
+    }
+
+    .about-stat span {
+      display: block;
+      color: #e2e2e2;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+
+    .about-values {
+      background: #fafafa;
+    }
+
+    .about-values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .about-value-card {
+      padding: 32px 27px;
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      transition: .25s;
+    }
+
+    .about-value-card:hover {
+      transform: translateY(-6px);
+      border-color: #ffd0a6;
+      box-shadow: 0 15px 35px rgba(0,0,0,.06);
+    }
+
+    .about-value-icon {
+      width: 55px;
+      height: 55px;
+      display: grid;
+      place-items: center;
+      background: #fff0e2;
+      color: var(--pv-orange);
+      font-size: 25px;
+      border-radius: 10px;
+      margin-bottom: 22px;
+    }
+
+    .about-value-card h3 {
+      color: var(--pv-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 19px;
+      margin: 0 0 12px;
+    }
+
+    .about-value-card p {
+      color: var(--pv-text);
+      font-size: 13px;
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    .about-mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .about-mission-card {
+      padding: 35px;
+      border-radius: 10px;
+      background: var(--pv-light);
+      border-left: 4px solid var(--pv-orange);
+    }
+
+    .about-mission-card h3 {
+      margin: 0 0 14px;
+      color: var(--pv-dark);
+      font-size: 23px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .about-mission-card p {
+      color: var(--pv-text);
+      font-size: 14px;
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    .about-cta {
+      padding: 65px 0;
+      color: white;
+      background:
+        linear-gradient(100deg, rgba(25,26,29,.97), rgba(25,26,29,.88)),
+        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1800&q=80') center/cover;
+    }
+
+    .about-cta-inner {
+      width: min(1180px, 90%);
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .about-cta h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(25px, 3vw, 36px);
+      margin: 0 0 12px;
+    }
+
+    .about-cta p {
+      color: #dedede;
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 650px;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .about-story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about-story-image img {
+        height: 380px;
+      }
+
+      .about-image-badge {
+        right: 12px;
+      }
+
+      .about-values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .about-hero {
+        min-height: 430px;
+      }
+
+      .about-hero-inner {
+        padding: 65px 0;
+      }
+
+      .about-hero p {
+        font-size: 14px;
+      }
+
+      .about-section {
+        padding: 58px 0;
+      }
+
+      .about-values-grid,
+      .about-mission-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-story-image img {
+        height: 300px;
+      }
+
+      .about-image-badge {
+        bottom: 15px;
+        padding: 14px 18px;
+      }
+
+      .about-stat strong {
+        font-size: 30px;
+      }
+
+      .about-stat span {
+        font-size: 12px;
+      }
+
+      .about-value-card {
+        padding: 25px 22px;
+      }
+
+      .about-mission-card {
+        padding: 25px;
+      }
+
+      .about-cta {
+        padding: 48px 0;
+      }
+    }
+
+/* ===== ABOUT PAGE - PROFESSIONAL FOOTER ===== */
+
+footer.footer {
+  background: #101416 !important;
+  color: #ffffff;
+  padding: 55px 6% 0;
+  border-top: 3px solid #f58220;
+}
+
+footer.footer .footer-container {
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  display: grid !important;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 40px;
+}
+
+footer.footer .footer-about,
+footer.footer .footer-links {
+  min-width: 0;
+}
+
+footer.footer .footer-about .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+footer.footer .footer-about .logo-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  color: #f58220;
+  font-size: 32px;
+}
+
+footer.footer .footer-about .logo small {
+  display: block;
+  margin-top: 4px;
+  color: #d0d0d0;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+footer.footer .orange {
+  color: #f58220 !important;
+}
+
+footer.footer .footer-about p,
+footer.footer .footer-links p {
+  margin: 18px 0 0;
+  color: #c4c7ca;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+footer.footer .footer-links {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+footer.footer .footer-links h3 {
+  position: relative;
+  margin: 0 0 10px;
+  padding-bottom: 12px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+footer.footer .footer-links h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 38px;
+  height: 3px;
+  border-radius: 3px;
+  background: #f58220;
+}
+
+footer.footer .footer-links a {
+  display: block;
+  color: #c4c7ca;
+  font-size: 13px;
+  line-height: 1.7;
+  text-decoration: none;
+  transition: color 0.25s, transform 0.25s;
+}
+
+footer.footer .footer-links a:hover {
+  color: #f58220;
+  transform: translateX(4px);
+}
+
+footer.footer .footer-bottom {
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 20px 0;
+  border-top: 1px solid #34383b;
+  text-align: left;
+}
+
+footer.footer .footer-bottom p {
+  margin: 0;
+  color: #aeb4b8;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  footer.footer .footer-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 550px) {
+  footer.footer {
+    padding: 40px 6% 0;
+  }
+
+  footer.footer .footer-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-bottom: 30px;
+  }
+
+  footer.footer .footer-about .logo {
+    font-size: 23px;
+  }
+
+  footer.footer .footer-bottom {
+    padding: 17px 0;
+  }
+}
+/* Remove orange lines below footer headings */
+footer.footer .footer-links h3::after {
+  display: none !important;
+}
+
+footer.footer .footer-links h3 {
+  padding-bottom: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⌂</span>
+      <span>
+        Prop<span class="orange">Vanta</span>
+        <small>Your Property Partner</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <button class="drop-btn" type="button">Plots ▾</button>
+        <div class="dropdown-menu">
+          <a href="project.html?type=Residential%20Plot">Residential Plots</a>
+          <a href="project.html?type=Commercial%20Plot">Commercial Plots</a>
+          <a href="project.html?type=Farmhouse%20Plot">Farmhouse Plots</a>
+          <a href="project.html?type=Gated%20Community%20Plot">Gated Community Plots</a>
+          <a href="project.html?type=Plots">View All Plots</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="drop-btn" type="button">Flats ▾</button>
+        <div class="dropdown-menu">
+          <a href="project.html?type=Apartment">Apartments</a>
+          <a href="project.html?type=Flat">Residential Flats</a>
+          <a href="project.html?type=Luxury Apartment">Luxury Apartments</a>
+          <a href="project.html?type=Flats">View All Flats</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="drop-btn" type="button">Land ▾</button>
+        <div class="dropdown-menu">
+          <a href="project.html?type=Agricultural Land">Agricultural Land</a>
+          <a href="project.html?type=Farm Land">Farm Land</a>
+          <a href="project.html?type=Industrial Land">Industrial Land</a>
+          <a href="project.html?type=Land">View All Land</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="drop-btn" type="button">Commercial ▾</button>
+        <div class="dropdown-menu">
+          <a href="project.html?type=Shop">Shops</a>
+          <a href="project.html?type=Office">Office Spaces</a>
+          <a href="project.html?type=Commercial Property">Commercial Properties</a>
+        </div>
+      </div>
+
+      <a href="project.html">Projects</a>
+      <a href="service.html">Services</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+   
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="about-hero">
+      <div class="about-hero-inner">
+        <span class="about-eyebrow">Welcome to PropVanta</span>
+        <h1>Helping You Find a Place to <span>Call Your Own.</span></h1>
+        <p>
+          Your property journey deserves clarity, confidence and the right
+          guidance. PropVanta helps you explore property opportunities and
+          make informed real estate decisions.
+        </p>
+        <a href="project.html" class="about-btn">
+          Explore Properties <span>→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- OUR STORY -->
+    <section class="about-section">
+      <div class="about-container">
+        <div class="about-story-grid">
+          <div class="about-story-image">
+            <img
+              src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=85"
+              alt="Modern residential property">
+            <div class="about-image-badge">
+              <strong>PropVanta</strong>
+              <span>Your Property Partner</span>
+            </div>
+          </div>
+
+          <div class="about-story-content">
+            <span class="eyebrow">Who We Are</span>
+            <h2>Making Real Estate Simpler, Smarter and More Accessible</h2>
+            <p>
+              Finding the right property is an important decision. Whether
+              you are searching for a residential plot, a new home, land for
+              investment or a commercial space, the process should feel clear
+              and well-informed.
+            </p>
+            <p>
+              PropVanta is built around helping property seekers explore
+              opportunities, understand their options and connect with the
+              right people throughout their property journey.
+            </p>
+
+            <div class="about-check-list">
+              <div class="about-check">
+                <span class="about-check-icon">✓</span>
+                <span>Property options for different needs and budgets</span>
+              </div>
+              <div class="about-check">
+                <span class="about-check-icon">✓</span>
+                <span>Guidance to help you make informed decisions</span>
+              </div>
+              <div class="about-check">
+                <span class="about-check-icon">✓</span>
+                <span>A customer-first approach to property discovery</span>
+              </div>
+            </div>
+
+            <a href="service.html" class="about-btn">
+              Discover Our Services →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="about-stats">
+      <div class="about-container">
+        <div class="about-stats-grid">
+          <div class="about-stat">
+            <strong>01</strong>
+            <span>Customer-First Approach</span>
+          </div>
+          <div class="about-stat">
+            <strong>360°</strong>
+            <span>Property Categories</span>
+          </div>
+          <div class="about-stat">
+            <strong>100%</strong>
+            <span>Focus on Clear Guidance</span>
+          </div>
+          <div class="about-stat">
+            <strong>24/7</strong>
+            <span>Explore Online Anytime</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="about-section about-values">
+      <div class="about-container">
+        <div class="about-heading">
+          <span class="eyebrow">What Makes Us Different</span>
+          <h2>The Values Behind PropVanta</h2>
+          <p>
+            We believe a better property experience starts with transparency,
+            useful guidance and a genuine understanding of your goals.
+          </p>
+        </div>
+
+        <div class="about-values-grid">
+          <article class="about-value-card">
+            <div class="about-value-icon">◆</div>
+            <h3>Transparency</h3>
+            <p>
+              We believe property decisions should be supported by clear
+              information, straightforward communication and realistic
+              expectations.
+            </p>
+          </article>
+
+          <article class="about-value-card">
+            <div class="about-value-icon">⌂</div>
+            <h3>Customer First</h3>
+            <p>
+              Every property search is different. We focus on understanding
+              your requirements and helping you explore suitable options.
+            </p>
+          </article>
+
+          <article class="about-value-card">
+            <div class="about-value-icon">↗</div>
+            <h3>Smart Choices</h3>
+            <p>
+              Our goal is to make property discovery more organised so you
+              can compare opportunities and ask the right questions.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION AND VISION -->
+    <section class="about-section">
+      <div class="about-container">
+        <div class="about-heading">
+          <span class="eyebrow">Our Purpose</span>
+          <h2>Mission & Vision</h2>
+          <p>
+            Creating a more approachable and informed property discovery
+            experience for buyers, investors and property owners.
+          </p>
+        </div>
+
+        <div class="about-mission-grid">
+          <article class="about-mission-card">
+            <h3>Our Mission</h3>
+            <p>
+              To simplify the property search process by bringing property
+              opportunities and helpful guidance together, enabling customers
+              to move forward with greater clarity and confidence.
+            </p>
+          </article>
+
+          <article class="about-mission-card">
+            <h3>Our Vision</h3>
+            <p>
+              To build a trusted property discovery platform where people can
+              explore residential, commercial and land opportunities with a
+              more transparent and customer-focused experience.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROPERTY CATEGORIES -->
+    <section class="about-section about-values">
+      <div class="about-container">
+        <div class="about-heading">
+          <span class="eyebrow">Explore Opportunities</span>
+          <h2>Properties for Different Goals</h2>
+          <p>
+            From finding your future home to exploring commercial
+            opportunities, discover property categories in one place.
+          </p>
+        </div>
+
+        <div class="about-values-grid">
+          <article class="about-value-card">
+            <div class="about-value-icon">⌂</div>
+            <h3>Residential Plots</h3>
+            <p>
+              Explore land options for building a home or planning a future
+              residential investment.
+            </p>
+            <p style="margin-top:18px;">
+              <a href="project.html?type=Residential%20Plot"
+                 style="color:#f58220;font-weight:600;">Explore Plots →</a>
+            </p>
+          </article>
+
+          <article class="about-value-card">
+            <div class="about-value-icon">▦</div>
+            <h3>Flats & Apartments</h3>
+            <p>
+              Discover residential options for different lifestyles,
+              preferences and living requirements.
+            </p>
+            <p style="margin-top:18px;">
+              <a href="project.html?type=Apartment"
+                 style="color:#f58220;font-weight:600;">Explore Homes →</a>
+            </p>
+          </article>
+
+          <article class="about-value-card">
+            <div class="about-value-icon">▤</div>
+            <h3>Commercial Properties</h3>
+            <p>
+              Browse commercial property opportunities for business,
+              workspace and investment requirements.
+            </p>
+            <p style="margin-top:18px;">
+              <a href="project.html?type=Commercial%20Property"
+                 style="color:#f58220;font-weight:600;">Explore Commercial →</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="about-cta">
+      <div class="about-cta-inner">
+        <div>
+          <h2>Your Next Property Journey Starts Here</h2>
+          <p>
+            Looking to buy, explore an investment or list your property?
+            Start with PropVanta and take the next step with confidence.
+          </p>
+        </div>
+        <a href="index.html#contact" class="about-btn">
+          Get in Touch →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">⌂</span>
+          <span>Prop<span class="orange">Vanta</span>
+            <small>Your Property Partner</small>
+          </span>
+        </a>
+        <p>
+          Your property partner for discovering residential plots,
+          homes, commercial spaces and land opportunities.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="project.html">Properties</a>
+        <a href="service.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <div class="footer-links">
+        <h3>Property Types</h3>
+        <a href="project.html?type=Residential%20Plot">Residential Plots</a>
+        <a href="project.html?type=Apartment">Flats & Apartments</a>
+        <a href="project.html?type=Land">Land</a>
+        <a href="project.html?type=Commercial%20Property">Commercial</a>
+      </div>
+
+      <div class="footer-links">
+        <h3>Get in Touch</h3>
+        <p>Have a property requirement?</p>
+        <a href="index.html#contact">Contact Our Team →</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="currentYear"></span> PropVanta. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("show");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.textContent = isOpen ? "✕" : "☰";
+      });
+    }
+
+    // Mobile dropdowns
+    document.querySelectorAll(".drop-btn").forEach(function (button) {
+      button.addEventListener("click", function () {
+        if (window.innerWidth <= 1100) {
+          const dropdown = button.closest(".dropdown");
+          const wasOpen = dropdown.classList.contains("service-dropdown-open");
+
+          document.querySelectorAll(".dropdown").forEach(function (item) {
+            item.classList.remove("service-dropdown-open");
+          });
+
+          if (!wasOpen) {
+            dropdown.classList.add("service-dropdown-open");
+          }
+        }
+      });
+    });
+
+    // Dynamic footer year
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,952 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | PropVanta</title>
+  <meta name="description" content="Contact PropVanta for residential plots, flats, land investments and commercial property enquiries.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --contact-orange: #f58220;
+      --contact-dark: #202124;
+      --contact-text: #666;
+      --contact-light: #fff7ef;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #292929;
+      background: #fff;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .contact-hero {
+      min-height: 390px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(24,25,28,.95), rgba(24,25,28,.70)),
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=85')
+        center/cover no-repeat;
+    }
+
+    .contact-hero-inner {
+      width: min(1180px, 90%);
+      margin: auto;
+      padding: 75px 0;
+    }
+
+    .contact-eyebrow {
+      color: var(--contact-orange);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .contact-hero h1 {
+      margin: 15px 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .contact-hero h1 span {
+      color: var(--contact-orange);
+    }
+
+    .contact-hero p {
+      max-width: 650px;
+      color: #e3e3e3;
+      font-size: 15px;
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    .contact-section {
+      padding: 80px 0;
+    }
+
+    .contact-container {
+      width: min(1180px, 90%);
+      margin: auto;
+    }
+
+    .contact-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .contact-heading span {
+      color: var(--contact-orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .contact-heading h2 {
+      color: var(--contact-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(27px, 3vw, 38px);
+      margin: 12px 0;
+    }
+
+    .contact-heading p {
+      max-width: 670px;
+      margin: auto;
+      color: var(--contact-text);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 35px;
+      align-items: stretch;
+    }
+
+    .contact-info {
+      padding: 38px;
+      border-radius: 12px;
+      color: white;
+      background: var(--contact-dark);
+    }
+
+    .contact-info h2 {
+      margin: 0 0 14px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 26px;
+    }
+
+    .contact-info > p {
+      color: #d4d4d4;
+      font-size: 13px;
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .contact-info-icon {
+      flex: 0 0 45px;
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      color: var(--contact-orange);
+      background: rgba(245,130,32,.13);
+      border-radius: 8px;
+      font-size: 21px;
+    }
+
+    .contact-info-item h3 {
+      font-size: 14px;
+      margin: 0 0 7px;
+    }
+
+    .contact-info-item p,
+    .contact-info-item a {
+      color: #d0d0d0;
+      font-size: 12px;
+      line-height: 1.8;
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-info-item a:hover {
+      color: var(--contact-orange);
+    }
+
+    .contact-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .contact-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      height: 42px;
+      padding: 0 12px;
+      border: 1px solid #555;
+      border-radius: 6px;
+      color: white;
+      font-size: 12px;
+      transition: .25s;
+    }
+
+    .contact-social a:hover {
+      background: var(--contact-orange);
+      border-color: var(--contact-orange);
+    }
+
+    .contact-form-card {
+      padding: 38px;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.045);
+    }
+
+    .contact-form-card h2 {
+      margin: 0 0 10px;
+      color: var(--contact-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 25px;
+    }
+
+    .contact-form-card > p {
+      margin: 0 0 28px;
+      color: var(--contact-text);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .contact-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-field.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .contact-field label {
+      color: #343434;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .contact-field input,
+    .contact-field select,
+    .contact-field textarea {
+      width: 100%;
+      padding: 13px 14px;
+      font-family: inherit;
+      font-size: 13px;
+      color: #292929;
+      background: #fafafa;
+      border: 1px solid #e4e4e4;
+      border-radius: 6px;
+      outline: none;
+      transition: .2s;
+    }
+
+    .contact-field input:focus,
+    .contact-field select:focus,
+    .contact-field textarea:focus {
+      border-color: var(--contact-orange);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(245,130,32,.10);
+    }
+
+    .contact-field textarea {
+      min-height: 125px;
+      resize: vertical;
+    }
+
+    .contact-submit {
+      grid-column: 1 / -1;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 6px;
+      background: var(--contact-orange);
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .contact-submit:hover {
+      background: #db6d12;
+    }
+
+    .contact-submit:disabled {
+      opacity: .7;
+      cursor: wait;
+    }
+
+    .contact-form-status {
+      grid-column: 1 / -1;
+      display: none;
+      padding: 13px;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .contact-form-status.success {
+      display: block;
+      color: #176b37;
+      background: #eaf8ef;
+    }
+
+    .contact-form-status.error {
+      display: block;
+      color: #a12a2a;
+      background: #fff0f0;
+    }
+
+    .contact-map-section {
+      padding: 0 0 80px;
+    }
+
+    .contact-map {
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+      border: 0;
+      border-radius: 12px;
+      background: #f1f1f1;
+    }
+
+    .contact-bottom-cta {
+      padding: 60px 0;
+      background: var(--contact-light);
+      text-align: center;
+    }
+
+    .contact-bottom-cta h2 {
+      margin: 0 0 12px;
+      color: var(--contact-dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(25px, 3vw, 35px);
+    }
+
+    .contact-bottom-cta p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      color: var(--contact-text);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 24px;
+      color: white;
+      background: var(--contact-orange);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: .25s;
+    }
+
+    .contact-btn:hover {
+      background: #db6d12;
+    }
+
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info,
+      .contact-form-card {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-hero {
+        min-height: 330px;
+      }
+
+      .contact-hero-inner {
+        padding: 55px 0;
+      }
+
+      .contact-section {
+        padding: 55px 0;
+      }
+
+      .contact-form {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-field.full-width,
+      .contact-submit,
+      .contact-form-status {
+        grid-column: auto;
+      }
+
+      .contact-info,
+      .contact-form-card {
+        padding: 23px;
+      }
+
+      .contact-map {
+        height: 260px;
+      }
+    }
+
+/* ===== CONTACT PAGE FOOTER FIX ===== */
+
+footer.footer {
+  background: #101416 !important;
+  color: #fff;
+  padding: 55px 6% 0;
+  border-top: 3px solid #f58220;
+}
+
+footer.footer .footer-container {
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  display: grid !important;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 40px;
+}
+
+footer.footer .footer-about,
+footer.footer .footer-links {
+  min-width: 0;
+}
+
+footer.footer .footer-about .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+footer.footer .footer-about .logo-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #f58220;
+  font-size: 32px;
+}
+
+footer.footer .footer-about .logo small {
+  display: block;
+  margin-top: 4px;
+  color: #d0d0d0;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+footer.footer .orange {
+  color: #f58220 !important;
+}
+
+footer.footer .footer-about p,
+footer.footer .footer-links p {
+  margin: 18px 0 0;
+  color: #c4c7ca;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+footer.footer .footer-links {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+footer.footer .footer-links h3 {
+  margin: 0 0 10px;
+  padding-bottom: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+footer.footer .footer-links h3::after {
+  display: none !important;
+}
+
+footer.footer .footer-links a {
+  display: block;
+  color: #c4c7ca;
+  font-size: 13px;
+  line-height: 1.7;
+  text-decoration: none;
+  transition: color .25s, transform .25s;
+}
+
+footer.footer .footer-links a:hover {
+  color: #f58220;
+  transform: translateX(4px);
+}
+
+footer.footer .footer-bottom {
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 20px 0;
+  border-top: 1px solid #34383b;
+  text-align: left;
+}
+
+footer.footer .footer-bottom p {
+  margin: 0;
+  color: #aeb4b8;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  footer.footer .footer-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 550px) {
+  footer.footer {
+    padding: 40px 6% 0;
+  }
+
+  footer.footer .footer-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-bottom: 30px;
+  }
+
+  footer.footer .footer-about .logo {
+    font-size: 23px;
+  }
+
+  footer.footer .footer-bottom {
+    padding: 17px 0;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⌂</span>
+      <span>
+        Prop<span class="orange">Vanta</span>
+        <small>Your Property Partner</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation"
+      aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <button class="drop-btn" type="button">Plots ▾</button>
+        <div class="dropdown-menu">
+          <a href="project.html?type=Residential%20Plot">Residential Plots</a>
+          <a href="project.html?type=Commercial%20Plot">Commercial Plots</a>
+          <a href="project.html?type=Farmhouse%20Plot">Farmhouse Plots</a>
+          <a href="project.html?type=Gated%20Community%20Plot">Gated Community Plots</a>
+          <a href="project.html?type=Plots">View All Plots</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="drop-btn" type="button">Flats ▾</button>
+        <div class="dropdown-menu">
+          <a href="project.html?type=Apartment">Apartments</a>
+          <a href="project.html?type=Flat">Residential Flats</a>
+          <a href="project.html?type=Luxury Apartment">Luxury Apartments</a>
+          <a href="project.html?type=Flats">View All Flats</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="drop-btn" type="button">Land ▾</button>
+        <div class="dropdown-menu">
+          <a href="project.html?type=Agricultural Land">Agricultural Land</a>
+          <a href="project.html?type=Farm Land">Farm Land</a>
+          <a href="project.html?type=Industrial Land">Industrial Land</a>
+          <a href="project.html?type=Land">View All Land</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="drop-btn" type="button">Commercial ▾</button>
+        <div class="dropdown-menu">
+          <a href="project.html?type=Shop">Shops</a>
+          <a href="project.html?type=Office">Office Spaces</a>
+          <a href="project.html?type=Commercial Property">Commercial Properties</a>
+        </div>
+      </div>
+
+      <a href="project.html">Projects</a>
+      <a href="service.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="contact-hero">
+      <div class="contact-hero-inner">
+        <span class="contact-eyebrow">We Are Here to Help</span>
+        <h1>Let's Talk About Your <span>Property Goals.</span></h1>
+        <p>
+          Have questions about buying a property, finding land or listing
+          your property? Send us an enquiry and tell us what you are looking for.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT FORM AND INFORMATION -->
+    <section class="contact-section">
+      <div class="contact-container">
+        <div class="contact-heading">
+          <span>Contact PropVanta</span>
+          <h2>Get in Touch With Our Team</h2>
+          <p>
+            Share your requirements using the form below. Add your contact
+            details and the type of property you are interested in.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <!-- CONTACT DETAILS -->
+          <aside class="contact-info">
+            <h2>Contact Information</h2>
+            <p>
+              Tell us about your property requirements. You can also update
+              the sample details below with your actual business contact information.
+            </p>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">⌖</div>
+              <div>
+                <h3>Our Office</h3>
+                <p>Update with your office address</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">☎</div>
+              <div>
+                <h3>Phone Number</h3>
+                <a href="tel:+910000000000">Add Your Business Phone</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">✉</div>
+              <div>
+                <h3>Email Address</h3>
+                <a href="mailto:info@example.com">Add Your Business Email</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">◷</div>
+              <div>
+                <h3>Business Hours</h3>
+                <p>Monday – Saturday</p>
+                <p>Update with your actual timings</p>
+              </div>
+            </div>
+
+            <div class="contact-social">
+              <!-- Replace # with your actual social media URLs -->
+              <a href="#" aria-label="Instagram">Instagram</a>
+              <a href="#" aria-label="Facebook">Facebook</a>
+              <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+          </aside>
+
+          <!-- CONTACT FORM -->
+          <div class="contact-form-card">
+            <h2>Send Us an Enquiry</h2>
+            <p>Fill in your details and we will know how to assist you.</p>
+
+            <form class="contact-form" id="contactForm">
+              <div class="contact-field">
+                <label for="fullName">Full Name *</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Enter your full name"
+                  autocomplete="name"
+                  required>
+              </div>
+
+              <div class="contact-field">
+                <label for="phone">Phone Number *</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  autocomplete="tel"
+                  pattern="[0-9+\-\s()]{8,20}"
+                  required>
+              </div>
+
+              <div class="contact-field">
+                <label for="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  autocomplete="email"
+                  required>
+              </div>
+
+              <div class="contact-field">
+                <label for="propertyType">Property Requirement *</label>
+                <select id="propertyType" name="propertyType" required>
+                  <option value="">Select property type</option>
+                  <option value="Residential Plot">Residential Plot</option>
+                  <option value="Commercial Plot">Commercial Plot</option>
+                  <option value="Flat or Apartment">Flat / Apartment</option>
+                  <option value="Agricultural Land">Agricultural Land</option>
+                  <option value="Commercial Property">Commercial Property</option>
+                  <option value="Property Listing">List My Property</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="contact-field">
+                <label for="budget">Approximate Budget</label>
+                <select id="budget" name="budget">
+                  <option value="">Select your budget</option>
+                  <option value="Below 10 Lakhs">Below ₹10 Lakhs</option>
+                  <option value="10-25 Lakhs">₹10–25 Lakhs</option>
+                  <option value="25-50 Lakhs">₹25–50 Lakhs</option>
+                  <option value="50 Lakhs-1 Crore">₹50 Lakhs–1 Crore</option>
+                  <option value="Above 1 Crore">Above ₹1 Crore</option>
+                  <option value="Not Decided">Not Decided</option>
+                </select>
+              </div>
+
+              <div class="contact-field">
+                <label for="location">Preferred Location</label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="Enter city or area">
+              </div>
+
+              <div class="contact-field full-width">
+                <label for="message">Your Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us more about your property requirements..."
+                  required></textarea>
+              </div>
+
+              <div class="contact-form-status" id="formStatus"
+                role="status" aria-live="polite"></div>
+
+              <button type="submit" class="contact-submit" id="submitButton">
+                Submit Enquiry <span>→</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="contact-map-section">
+      <div class="contact-container">
+        <div class="contact-heading">
+          <span>Find Us</span>
+          <h2>Our Location</h2>
+          <p>
+            Replace the sample map below with an embedded map of your actual office.
+          </p>
+        </div>
+
+        <iframe
+          class="contact-map"
+          title="Map showing a sample location"
+          src="https://maps.google.com/maps?q=India&t=&z=5&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="contact-bottom-cta">
+      <div class="contact-container">
+        <h2>Ready to Explore Your Next Property?</h2>
+        <p>
+          Browse available property listings or learn more about how
+          PropVanta can assist you with your property journey.
+        </p>
+        <a href="project.html" class="contact-btn">
+          Explore Properties →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">⌂</span>
+          <span>
+            Prop<span class="orange">Vanta</span>
+            <small>Your Property Partner</small>
+          </span>
+        </a>
+        <p>
+          Your property partner for discovering residential plots,
+          homes, commercial spaces and land opportunities.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="project.html">Properties</a>
+        <a href="service.html">Services</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer-links">
+        <h3>Property Types</h3>
+        <a href="project.html?type=Residential%20Plot">Residential Plots</a>
+        <a href="project.html?type=Apartment">Flats & Apartments</a>
+        <a href="project.html?type=Land">Land</a>
+        <a href="project.html?type=Commercial%20Property">Commercial</a>
+      </div>
+
+      <div class="footer-links">
+        <h3>Contact</h3>
+        <p>Have a property requirement?</p>
+        <a href="#contactForm">Send an Enquiry →</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="currentYear"></span> PropVanta. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navbar
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("show");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.textContent = isOpen ? "✕" : "☰";
+      });
+    }
+
+    // Mobile dropdowns
+    document.querySelectorAll(".drop-btn").forEach(function (button) {
+      button.addEventListener("click", function () {
+        if (window.innerWidth <= 1100) {
+          const dropdown = button.closest(".dropdown");
+          const wasOpen = dropdown.classList.contains("service-dropdown-open");
+
+          document.querySelectorAll(".dropdown").forEach(function (item) {
+            item.classList.remove("service-dropdown-open");
+          });
+
+          if (!wasOpen) {
+            dropdown.classList.add("service-dropdown-open");
+          }
+        }
+      });
+    });
+
+    // Footer year
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    /*
+      IMPORTANT:
+      This is a front-end demo form. It does not send or save enquiries.
+      Connect it to your backend API or a form service to receive submissions.
+    */
+    const contactForm = document.getElementById("contactForm");
+    const formStatus = document.getElementById("formStatus");
+    const submitButton = document.getElementById("submitButton");
+
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      formStatus.className = "contact-form-status error";
+      formStatus.textContent =
+        "The form design is ready, but submission is not connected yet. Connect your backend API to receive enquiries.";
+      submitButton.disabled = false;
+    });
+  </script>
+
+</body>
+</html>

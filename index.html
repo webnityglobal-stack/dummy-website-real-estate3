@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find verified plots, flats, land and commercial properties with PropVanta.">
+  <title>PropVanta | Find Your Perfect Property</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="#" class="logo">
+      <span class="logo-icon">⌂</span>
+      <span>Prop<span class="orange">Vanta</span>
+        <small>Your Property Partner</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+
+      <div class="dropdown">
+        <button class="drop-btn">Plots ▾</button>
+        <div class="dropdown-menu">
+          <a href="#properties" data-type="Residential Plot">Residential Plots</a>
+          <a href="#properties" data-type="Commercial Plot">Commercial Plots</a>
+          <a href="#properties" data-type="Farmhouse Plot">Farmhouse Plots</a>
+          <a href="#properties" data-type="Gated Community Plot">Gated Community Plots</a>
+          <a href="#properties" data-type="All">View All Plots</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="drop-btn">Flats ▾</button>
+        <div class="dropdown-menu">
+          <a href="#properties" data-type="1 BHK Flat">1 BHK Flats</a>
+          <a href="#properties" data-type="2 BHK Flat">2 BHK Flats</a>
+          <a href="#properties" data-type="3 BHK Flat">3 BHK Flats</a>
+          <a href="#properties" data-type="Luxury Apartment">Luxury Apartments</a>
+          <a href="#properties" data-type="Ready to Move Flat">Ready-to-Move Flats</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="drop-btn">Land ▾</button>
+        <div class="dropdown-menu">
+          <a href="#properties" data-type="Agricultural Land">Agricultural Land</a>
+          <a href="#properties" data-type="Farm Land">Farm Land</a>
+          <a href="#properties" data-type="Industrial Land">Industrial Land</a>
+          <a href="#properties" data-type="NA Plot">NA Plots</a>
+          <a href="#properties" data-type="Investment Land">Investment Land</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="drop-btn">Commercial ▾</button>
+        <div class="dropdown-menu">
+          <a href="#properties" data-type="Office Space">Office Spaces</a>
+          <a href="#properties" data-type="Shop">Shops & Showrooms</a>
+          <a href="#properties" data-type="Retail Space">Retail Spaces</a>
+          <a href="#properties" data-type="Warehouse">Warehouses</a>
+        </div>
+      </div>
+
+      <a href="project.html">Projects</a>
+      <a href="service.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">PREMIUM PROPERTIES • BRIGHTER TOMORROW</p>
+        <h1>Find Your<br><span>Perfect Property</span></h1>
+        <p class="hero-text">
+          Plots, flats, land and commercial spaces — everything in one place.
+          Discover verified properties in locations you'll love.
+        </p>
+
+        <div class="hero-points">
+          <span>✓ Verified Properties</span>
+          <span>⌖ Prime Locations</span>
+          <span>♧ Expert Guidance</span>
+        </div>
+      </div>
+
+      <!-- PROPERTY SEARCH -->
+      <div class="search-panel">
+        <div class="search-tabs">
+          <button class="tab active" data-search-type="Plots">Plots</button>
+          <button class="tab" data-search-type="Flats">Flats</button>
+          <button class="tab" data-search-type="Land">Land</button>
+          <button class="tab" data-search-type="Commercial">Commercial</button>
+        </div>
+
+        <form class="search-form" id="searchForm">
+          <input id="location" type="text" placeholder="Enter city or location">
+
+          <select id="propertyType">
+            <option value="">All Property Types</option>
+            <option>Residential Plot</option>
+            <option>Commercial Plot</option>
+            <option>Farmhouse Plot</option>
+            <option>1 BHK Flat</option>
+            <option>2 BHK Flat</option>
+            <option>3 BHK Flat</option>
+            <option>Luxury Apartment</option>
+            <option>Agricultural Land</option>
+            <option>Farm Land</option>
+            <option>Industrial Land</option>
+            <option>Office Space</option>
+            <option>Shop</option>
+            <option>Warehouse</option>
+          </select>
+
+          <select id="budget">
+            <option value="">Any Budget</option>
+            <option value="2500000">Under ₹25 Lakhs</option>
+            <option value="5000000">Under ₹50 Lakhs</option>
+            <option value="10000000">Under ₹1 Crore</option>
+          </select>
+
+          <button class="btn btn-orange" type="submit">
+            ⌕ Search Properties
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- PROPERTY CATEGORIES -->
+    <section class="section categories" id="services">
+      <div class="section-heading">
+        <p class="eyebrow">EXPLORE PROPERTIES</p>
+        <h2>Find Your Property Type</h2>
+        <p>Choose from a wide range of properties for every need.</p>
+      </div>
+
+      <div class="category-grid">
+        <a href="#properties" class="category-card" data-type="Residential Plot">
+          <div class="category-icon">⌂</div>
+          <h3>Plots</h3>
+          <p>Residential & commercial plots</p>
+          <span>Explore Plots →</span>
+        </a>
+
+        <a href="#properties" class="category-card" data-type="2 BHK Flat">
+          <div class="category-icon">▤</div>
+          <h3>Flats & Apartments</h3>
+          <p>1, 2, 3 BHK and luxury flats</p>
+          <span>Explore Flats →</span>
+        </a>
+
+        <a href="#properties" class="category-card" data-type="Agricultural Land">
+          <div class="category-icon">♧</div>
+          <h3>Land</h3>
+          <p>Agricultural & industrial land</p>
+          <span>Explore Land →</span>
+        </a>
+
+        <a href="#properties" class="category-card" data-type="Office Space">
+          <div class="category-icon">▦</div>
+          <h3>Commercial</h3>
+          <p>Offices, shops and showrooms</p>
+          <span>Explore Commercial →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- FEATURED PROPERTIES -->
+    <section class="section featured" id="properties">
+      <div class="section-heading heading-row">
+        <div>
+          <p class="eyebrow">FEATURED PROPERTIES</p>
+          <h2>Handpicked Properties for You</h2>
+          <p>Explore property opportunities in promising locations.</p>
+        </div>
+        <button class="btn btn-outline" id="showAll">View All Properties →</button>
+      </div>
+
+      <p id="resultMessage" class="result-message" aria-live="polite"></p>
+      <div class="property-grid" id="propertyGrid"></div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section why-us">
+      <div class="section-heading">
+        <p class="eyebrow">WHY CHOOSE PROPVANTA</p>
+        <h2>Your Trusted Real Estate Partner</h2>
+        <p>Helping you make property decisions with confidence.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <article class="benefit">
+          <span>✓</span><h3>Verified Listings</h3>
+          <p>Property information checked before listing.</p>
+        </article>
+        <article class="benefit">
+          <span>⌖</span><h3>Prime Locations</h3>
+          <p>Discover properties in your preferred areas.</p>
+        </article>
+        <article class="benefit">
+          <span>♧</span><h3>Expert Guidance</h3>
+          <p>Support throughout your property search.</p>
+        </article>
+        <article class="benefit">
+          <span>₹</span><h3>Better Choices</h3>
+          <p>Compare options that fit your budget.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+      <p class="eyebrow">OUR PROJECTS</p>
+      <h2>Explore Property Opportunities</h2>
+      <p>From residential developments to commercial investments.</p>
+      <a class="btn btn-orange" href="project.html">Explore Properties →</a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div>
+        <p class="eyebrow">ABOUT PROPVANTA</p>
+        <h2>Your Property Journey Starts Here</h2>
+      </div>
+      <p>
+        PropVanta brings plots, flats, land and commercial property options
+        together in one place. Explore listings, compare your choices and
+        contact our team for further details.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <p class="eyebrow">LET'S CONNECT</p>
+      <h2>Looking for Your Next Property?</h2>
+      <p>Tell us what you need and our team can help you explore your options.</p>
+      <a class="btn btn-orange"
+         href="https://wa.me/919876543210"
+         target="_blank" rel="noopener">
+        Contact Us on WhatsApp →
+      </a>
+      <p class="small-note">Replace this demo number with your business WhatsApp number.</p>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <a href="#home" class="logo footer-logo">
+          <span class="logo-icon">⌂</span>
+          <span>Prop<span class="orange">Vanta</span>
+            <small>Your Property Partner</small>
+          </span>
+        </a>
+        <p>Your trusted partner for plots, flats, land and commercial properties.</p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="project.html">Properties</a>
+        <a href="project.html">Projects</a>
+        <a href="about.html">About Us</a>
+      </div>
+
+      <div>
+        <h3>Property Types</h3>
+        <a href="#properties" data-type="Residential Plot">Residential Plots</a>
+        <a href="#properties" data-type="2 BHK Flat">Flats & Apartments</a>
+        <a href="#properties" data-type="Agricultural Land">Land</a>
+        <a href="#properties" data-type="Office Space">Commercial</a>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>📍 Add your business address</p>
+        <p>☎ +91 98765 43210</p>
+        <p>✉ Add your business email</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> PropVanta. All rights reserved.</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

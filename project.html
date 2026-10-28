@@ -1,0 +1,910 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore plots, flats, land and commercial properties with PropVanta.">
+  <title>Properties | PropVanta</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Properties page styling */
+    .properties-hero {
+      background: linear-gradient(120deg, #151c1e, #263133);
+      color: #fff;
+      padding: 75px 7% 90px;
+    }
+
+    .properties-hero .eyebrow,
+    .properties-page .eyebrow {
+      color: #f47b35;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .properties-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .properties-hero h1 span {
+      color: #f47b35;
+    }
+
+    .properties-hero p {
+      max-width: 650px;
+      color: #d4d9d8;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .properties-page {
+      padding: 60px 7% 85px;
+      background: #f7f7f5;
+      min-height: 600px;
+    }
+
+    .property-search-box {
+      background: #fff;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.08);
+      margin-top: -105px;
+      position: relative;
+      margin-bottom: 55px;
+    }
+
+    .property-search-form {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr auto auto;
+      gap: 12px;
+      align-items: end;
+    }
+
+    .property-search-form label {
+      display: block;
+      color: #454b4b;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .property-search-form input,
+    .property-search-form select {
+      width: 100%;
+      min-width: 0;
+      height: 46px;
+      padding: 0 12px;
+      border: 1px solid #dedfdd;
+      border-radius: 6px;
+      background: #fff;
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .property-search-form input:focus,
+    .property-search-form select:focus {
+      border-color: #f47b35;
+    }
+
+    .property-search-form button {
+      height: 46px;
+      padding: 0 19px;
+      border: none;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .property-search-form .search-btn {
+      background: #f47b35;
+      color: white;
+    }
+
+    .property-search-form .reset-btn {
+      background: #e9ebea;
+      color: #252a2a;
+    }
+
+    .properties-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .properties-heading h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 38px);
+      color: #1c2425;
+      margin-bottom: 10px;
+    }
+
+    .properties-heading p {
+      color: #727878;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .property-count {
+      font-size: 13px;
+      color: #626969;
+      white-space: nowrap;
+    }
+
+    .property-filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .property-filter-tabs button {
+      border: 1px solid #dedfdd;
+      border-radius: 6px;
+      background: #fff;
+      color: #323939;
+      padding: 10px 17px;
+      font-family: inherit;
+      font-size: 13px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .property-filter-tabs button:hover,
+    .property-filter-tabs button.active {
+      background: #192122;
+      border-color: #192122;
+      color: #fff;
+    }
+
+    .properties-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .property-card {
+      background: #fff;
+      border: 1px solid #e9eae7;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .property-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.09);
+    }
+
+    .property-card-image {
+      position: relative;
+      height: 230px;
+      background: #e3e6e3;
+      overflow: hidden;
+    }
+
+    .property-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s;
+    }
+
+    .property-card:hover .property-card-image img {
+      transform: scale(1.04);
+    }
+
+    .property-card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #f47b35;
+      color: #fff;
+      padding: 6px 11px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .property-card-body {
+      padding: 20px;
+    }
+
+    .property-card-type {
+      color: #f47b35;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .property-card-body h3 {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #202828;
+      margin: 9px 0;
+    }
+
+    .property-location {
+      color: #777d7d;
+      font-size: 12px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .property-specs {
+      border-top: 1px solid #eceeeb;
+      border-bottom: 1px solid #eceeeb;
+      padding: 13px 0;
+      color: #676e6d;
+      font-size: 12px;
+    }
+
+    .property-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 17px;
+    }
+
+    .property-price {
+      color: #1b2324;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .property-price small {
+      display: block;
+      color: #858a89;
+      font-size: 10px;
+      font-weight: 400;
+      margin-top: 4px;
+    }
+
+    .property-enquire {
+      background: #192122;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .property-enquire:hover {
+      background: #f47b35;
+    }
+
+    .property-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 50px 20px;
+      background: white;
+      border-radius: 10px;
+    }
+
+    .property-empty h3 {
+      margin-bottom: 10px;
+    }
+
+    .property-empty p {
+      color: #727878;
+      margin-bottom: 18px;
+    }
+
+    .property-empty button {
+      background: #f47b35;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .property-contact-banner {
+      background: #192122;
+      color: white;
+      padding: 45px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .property-contact-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3vw, 34px);
+      margin-bottom: 10px;
+    }
+
+    .property-contact-banner p {
+      color: #d1d6d5;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .property-contact-banner a {
+      background: #f47b35;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1100px) {
+      .property-search-form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .properties-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      .properties-hero {
+        padding: 55px 6% 85px;
+      }
+
+      .properties-hero p {
+        font-size: 13px;
+      }
+
+      .properties-page {
+        padding: 40px 5% 55px;
+      }
+
+      .property-search-box {
+        padding: 16px;
+        margin-bottom: 40px;
+      }
+
+      .property-search-form {
+        grid-template-columns: 1fr;
+      }
+
+      .property-search-form button {
+        width: 100%;
+      }
+
+      .properties-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .properties-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .property-card-image {
+        height: 225px;
+      }
+
+      .property-contact-banner {
+        padding: 35px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SAME NAVBAR AS index.html -->
+  <header class="navbar">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">⌂</span>
+      <span>Prop<span class="orange">Vanta</span>
+        <small>Your Property Partner</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+
+      <div class="dropdown">
+        <button class="drop-btn" type="button">Plots ▾</button>
+        <div class="dropdown-menu">
+          <a href="project.html?type=Residential%20Plot">Residential Plots</a>
+          <a href="project.html?type=Commercial%20Plot">Commercial Plots</a>
+          <a href="project.html?type=Farmhouse%20Plot">Farmhouse Plots</a>
+          <a href="project.html?type=Gated%20Community%20Plot">Gated Community Plots</a>
+          <a href="project.html?type=Plots">View All Plots</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="drop-btn" type="button">Flats ▾</button>
+        <div class="dropdown-menu">
+          <a href="project.html?type=1%20BHK%20Flat">1 BHK Flats</a>
+          <a href="project.html?type=2%20BHK%20Flat">2 BHK Flats</a>
+          <a href="project.html?type=3%20BHK%20Flat">3 BHK Flats</a>
+          <a href="project.html?type=Luxury%20Apartment">Luxury Apartments</a>
+          <a href="project.html?type=Ready%20to%20Move%20Flat">Ready-to-Move Flats</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="drop-btn" type="button">Land ▾</button>
+        <div class="dropdown-menu">
+          <a href="project.html?type=Agricultural%20Land">Agricultural Land</a>
+          <a href="project.html?type=Farm%20Land">Farm Land</a>
+          <a href="project.html?type=Industrial%20Land">Industrial Land</a>
+          <a href="project.html?type=NA%20Plot">NA Plots</a>
+          <a href="project.html?type=Investment%20Land">Investment Land</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="drop-btn" type="button">Commercial ▾</button>
+        <div class="dropdown-menu">
+          <a href="project.html?type=Office%20Space">Office Spaces</a>
+          <a href="project.html?type=Shop">Shops & Showrooms</a>
+          <a href="project.html?type=Retail%20Space">Retail Spaces</a>
+          <a href="project.html?type=Warehouse">Warehouses</a>
+        </div>
+      </div>
+
+      <a href="project.html?type=All">Projects</a>
+      <a href="service.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+
+    </nav>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="properties-hero">
+      <p class="eyebrow">EXPLORE PROPVANTA</p>
+      <h1>Discover Properties.<br><span>Find Your Future.</span></h1>
+      <p>
+        Explore residential plots, flats, agricultural land and commercial
+        spaces. Compare available options and find a property that matches
+        your needs and budget.
+      </p>
+    </section>
+
+    <!-- SEARCH AND FILTERS -->
+    <section class="properties-page">
+      <div class="property-search-box">
+        <form class="property-search-form" id="projectSearchForm">
+          <div>
+            <label for="projectLocation">Location</label>
+            <input id="projectLocation" type="text" placeholder="Enter city or location">
+          </div>
+
+          <div>
+            <label for="projectType">Property Type</label>
+            <select id="projectType">
+              <option value="">All Property Types</option>
+              <option value="Residential Plot">Residential Plot</option>
+              <option value="Commercial Plot">Commercial Plot</option>
+              <option value="Farmhouse Plot">Farmhouse Plot</option>
+              <option value="Gated Community Plot">Gated Community Plot</option>
+              <option value="1 BHK Flat">1 BHK Flat</option>
+              <option value="2 BHK Flat">2 BHK Flat</option>
+              <option value="3 BHK Flat">3 BHK Flat</option>
+              <option value="Luxury Apartment">Luxury Apartment</option>
+              <option value="Ready to Move Flat">Ready to Move Flat</option>
+              <option value="Agricultural Land">Agricultural Land</option>
+              <option value="Farm Land">Farm Land</option>
+              <option value="Industrial Land">Industrial Land</option>
+              <option value="NA Plot">NA Plot</option>
+              <option value="Investment Land">Investment Land</option>
+              <option value="Office Space">Office Space</option>
+              <option value="Shop">Shop</option>
+              <option value="Retail Space">Retail Space</option>
+              <option value="Warehouse">Warehouse</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="projectBudget">Maximum Budget</label>
+            <select id="projectBudget">
+              <option value="">Any Budget</option>
+              <option value="2500000">₹25 Lakhs</option>
+              <option value="5000000">₹50 Lakhs</option>
+              <option value="10000000">₹1 Crore</option>
+              <option value="20000000">₹2 Crore</option>
+            </select>
+          </div>
+
+          <button class="search-btn" type="submit">⌕ Search</button>
+          <button class="reset-btn" id="resetProjectFilters" type="button">Reset</button>
+        </form>
+      </div>
+
+      <div class="properties-heading">
+        <div>
+          <p class="eyebrow">PROPERTY COLLECTION</p>
+          <h2>Explore All Properties</h2>
+          <p>Find property options for living, business and investment.</p>
+        </div>
+        <span class="property-count" id="projectCount" aria-live="polite"></span>
+      </div>
+
+      <div class="property-filter-tabs" id="projectFilterTabs">
+        <button type="button" class="active" data-category="">All Properties</button>
+        <button type="button" data-category="Plots">Plots</button>
+        <button type="button" data-category="Flats">Flats</button>
+        <button type="button" data-category="Land">Land</button>
+        <button type="button" data-category="Commercial">Commercial</button>
+      </div>
+
+      <div class="properties-grid" id="projectPropertyGrid"></div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="property-contact-banner">
+      <div>
+        <h2>Looking for a specific property?</h2>
+        <p>Contact our team and tell us about your preferred location and budget.</p>
+      </div>
+      <a href="index.html#contact">Contact PropVanta →</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo footer-logo">
+          <span class="logo-icon">⌂</span>
+          <span>Prop<span class="orange">Vanta</span>
+            <small>Your Property Partner</small>
+          </span>
+        </a>
+        <p>Your trusted partner for plots, flats, land and commercial properties.</p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="project.html">Properties</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#about">About Us</a>
+      </div>
+
+      <div>
+        <h3>Property Types</h3>
+        <a href="project.html?type=Residential%20Plot">Residential Plots</a>
+        <a href="project.html?type=2%20BHK%20Flat">Flats & Apartments</a>
+        <a href="project.html?type=Agricultural%20Land">Land</a>
+        <a href="project.html?type=Office%20Space">Commercial</a>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>📍 Add your business address</p>
+        <p>☎ +91 98765 43210</p>
+        <p>✉ Add your business email</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="projectYear"></span> PropVanta. All rights reserved.</p>
+      <a href="#">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navbar
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", function () {
+        const opened = navLinks.classList.toggle("show");
+        menuToggle.setAttribute("aria-expanded", String(opened));
+        menuToggle.textContent = opened ? "✕" : "☰";
+      });
+    }
+
+    // Mobile dropdown menus
+    document.querySelectorAll(".drop-btn").forEach(function (button) {
+      button.addEventListener("click", function () {
+        if (window.innerWidth <= 1100) {
+          const parent = button.closest(".dropdown");
+          const wasOpen = parent.classList.contains("project-dropdown-open");
+
+          document.querySelectorAll(".dropdown").forEach(function (dropdown) {
+            dropdown.classList.remove("project-dropdown-open");
+          });
+
+          if (!wasOpen) {
+            parent.classList.add("project-dropdown-open");
+          }
+        }
+      });
+    });
+
+    // Demo listings: replace these entries with your real property data.
+    const projectProperties = [
+      {
+        title: "Premium Residential Plot",
+        type: "Residential Plot",
+        category: "Plots",
+        location: "Greater Noida, Uttar Pradesh",
+        price: 2200000,
+        priceLabel: "₹22 Lakh",
+        details: "1,200 sq. ft. · Residential",
+        badge: "Featured",
+        image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Modern 2 BHK Apartment",
+        type: "2 BHK Flat",
+        category: "Flats",
+        location: "Noida, Uttar Pradesh",
+        price: 4800000,
+        priceLabel: "₹48 Lakh",
+        details: "2 BHK · 1,050 sq. ft.",
+        badge: "Popular",
+        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Luxury Apartment",
+        type: "Luxury Apartment",
+        category: "Flats",
+        location: "Indirapuram, Ghaziabad",
+        price: 8500000,
+        priceLabel: "₹85 Lakh",
+        details: "3 BHK · Premium Living",
+        badge: "Premium",
+        image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Agricultural Land",
+        type: "Agricultural Land",
+        category: "Land",
+        location: "Meerut, Uttar Pradesh",
+        price: 4500000,
+        priceLabel: "₹45 Lakh",
+        details: "1 Acre · Agricultural",
+        badge: "Investment",
+        image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Commercial Office Space",
+        type: "Office Space",
+        category: "Commercial",
+        location: "Sector 62, Noida",
+        price: 9500000,
+        priceLabel: "₹95 Lakh",
+        details: "1,100 sq. ft. · Office",
+        badge: "Commercial",
+        image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Farmhouse Plot",
+        type: "Farmhouse Plot",
+        category: "Plots",
+        location: "Yamuna Expressway, Uttar Pradesh",
+        price: 1800000,
+        priceLabel: "₹18 Lakh",
+        details: "1,000 sq. ft. · Open Plot",
+        badge: "New Listing",
+        image: "https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Industrial Land Parcel",
+        type: "Industrial Land",
+        category: "Land",
+        location: "Ghaziabad, Uttar Pradesh",
+        price: 15000000,
+        priceLabel: "₹1.5 Crore",
+        details: "Industrial · Investment",
+        badge: "Investment",
+        image: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Commercial Retail Shop",
+        type: "Shop",
+        category: "Commercial",
+        location: "Crossings Republik, Ghaziabad",
+        price: 3500000,
+        priceLabel: "₹35 Lakh",
+        details: "450 sq. ft. · Retail",
+        badge: "Retail",
+        image: "https://images.unsplash.com/photo-1604754742629-3e5728249d73?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        title: "Ready to Move Flat",
+        type: "Ready to Move Flat",
+        category: "Flats",
+        location: "Vaishali, Ghaziabad",
+        price: 6200000,
+        priceLabel: "₹62 Lakh",
+        details: "3 BHK · Ready to Move",
+        badge: "Ready",
+        image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80"
+      }
+    ];
+
+    const projectGrid = document.getElementById("projectPropertyGrid");
+    const projectCount = document.getElementById("projectCount");
+    const projectLocation = document.getElementById("projectLocation");
+    const projectType = document.getElementById("projectType");
+    const projectBudget = document.getElementById("projectBudget");
+
+    let activeCategory = "";
+
+    function categoryForType(type) {
+      if (!type) return "";
+      if (type.includes("Plot")) return "Plots";
+      if (type.includes("Flat") || type.includes("Apartment")) return "Flats";
+      if (type.includes("Land")) return "Land";
+      if (["Office Space", "Shop", "Retail Space", "Warehouse"].includes(type)) {
+        return "Commercial";
+      }
+      return "";
+    }
+
+    function renderProjectProperties() {
+      const searchLocation = projectLocation.value.trim().toLowerCase();
+      const selectedType = projectType.value;
+      const maxBudget = Number(projectBudget.value) || Infinity;
+
+      const results = projectProperties.filter(function (property) {
+        const locationMatch = !searchLocation ||
+          property.location.toLowerCase().includes(searchLocation);
+
+        const typeMatch = !selectedType || property.type === selectedType;
+        const categoryMatch = !activeCategory || property.category === activeCategory;
+        const budgetMatch = property.price <= maxBudget;
+
+        return locationMatch && typeMatch && categoryMatch && budgetMatch;
+      });
+
+      projectCount.textContent =
+        "Showing " + results.length + " of " + projectProperties.length + " properties";
+
+      if (!results.length) {
+        projectGrid.innerHTML = `
+          <div class="property-empty">
+            <h3>No matching properties found</h3>
+            <p>Try a different location, property type or budget.</p>
+            <button type="button" id="emptyResetButton">Show All Properties</button>
+          </div>`;
+
+        document.getElementById("emptyResetButton")
+          .addEventListener("click", resetProjectFilters);
+        return;
+      }
+
+      projectGrid.innerHTML = results.map(function (property) {
+        const enquiryUrl = "index.html#contact";
+
+        return `
+          <article class="property-card">
+            <div class="property-card-image">
+              <img src="${property.image}"
+                   alt="${property.title}"
+                   loading="lazy">
+              <span class="property-card-badge">${property.badge}</span>
+            </div>
+
+            <div class="property-card-body">
+              <span class="property-card-type">${property.type}</span>
+              <h3>${property.title}</h3>
+              <p class="property-location">📍 ${property.location}</p>
+              <div class="property-specs">${property.details}</div>
+
+              <div class="property-card-bottom">
+                <div class="property-price">
+                  ${property.priceLabel}
+                  <small>Indicative demo price</small>
+                </div>
+                <a class="property-enquire" href="${enquiryUrl}">
+                  Enquire Now →
+                </a>
+              </div>
+            </div>
+          </article>`;
+      }).join("");
+    }
+
+    function setProjectCategory(category) {
+      activeCategory = category;
+      projectType.value = "";
+
+      document.querySelectorAll("#projectFilterTabs button").forEach(function (button) {
+        button.classList.toggle("active", button.dataset.category === category);
+      });
+
+      renderProjectProperties();
+    }
+
+    function resetProjectFilters() {
+      projectLocation.value = "";
+      projectType.value = "";
+      projectBudget.value = "";
+      activeCategory = "";
+
+      document.querySelectorAll("#projectFilterTabs button").forEach(function (button) {
+        button.classList.toggle("active", button.dataset.category === "");
+      });
+
+      renderProjectProperties();
+    }
+
+    document.getElementById("projectSearchForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      activeCategory = "";
+      document.querySelectorAll("#projectFilterTabs button").forEach(function (button) {
+        button.classList.remove("active");
+      });
+
+      renderProjectProperties();
+    });
+
+    document.getElementById("resetProjectFilters")
+      .addEventListener("click", resetProjectFilters);
+
+    document.getElementById("projectFilterTabs")
+      .addEventListener("click", function (event) {
+        const button = event.target.closest("button[data-category]");
+        if (!button) return;
+
+        projectType.value = "";
+        projectLocation.value = "";
+        projectBudget.value = "";
+
+        setProjectCategory(button.dataset.category);
+      });
+
+    // Support category links from the navbar.
+    const queryParams = new URLSearchParams(window.location.search);
+    const requestedType = queryParams.get("type");
+
+    const categoryNames = {
+      "Plots": "Plots",
+      "Flats": "Flats",
+      "Land": "Land",
+      "Commercial": "Commercial",
+      "All": ""
+    };
+
+    if (categoryNames[requestedType] !== undefined) {
+      setProjectCategory(categoryNames[requestedType]);
+    } else if (requestedType) {
+      projectType.value = requestedType;
+      activeCategory = categoryForType(requestedType);
+      document.querySelectorAll("#projectFilterTabs button").forEach(function (button) {
+        button.classList.toggle("active", button.dataset.category === activeCategory);
+      });
+      renderProjectProperties();
+    } else {
+      renderProjectProperties();
+    }
+
+    document.getElementById("projectYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
